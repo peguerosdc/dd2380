@@ -38,3 +38,7 @@ The topic of this project is word prediction, where the specific problem will be
 There are multiple aspects considered in the prediction: previous words in the sentence, initial letters of the word to complete, word classes of the previous words (used to infer the class of the predicted word and its role in the sentence) and context of the sentence in the context (probably in a conversation). Each aspect helps to narrow down the set of possible words and assign probabilities.
 
 The solution uses n­gram models, a corpus retrieved from Twitter and part-of-speech tags.
+
+## License
+
+Licensed under the [MIT License](/LICENSE).
