@@ -1,0 +1,416 @@
+INTERESTING TEST CASES FOR N=3
+
+*********************************
+********** TEST CASE 1 **********
+*********************************
+
+	Input: i want to go
+	======== RESULTS ========
+	Next word must be a:
+	ADV : 0.0573670444638
+	NOUN : 0.269049694856
+	ADP : 0.146120313862
+	PRT : 0.0474280732345
+	DET : 0.130078465562
+	. : 0.0329555361813
+	PRON : 0.133042720139
+	VERB : 0.0528334786399
+	X : 0.000348735832607
+	NUM : 0.00889276373147
+	CONJ : 0.0188317349608
+	ADJ : 0.103051438535
+	======== PREDICTIONS ========
+	** C - Grade **
+	- home : 0.0384356706937
+	- to : 0.013550878067
+	** E - Grade **
+	- to : 0.285714285714
+	- back : 0.178571428571
+	======== MY THOUGHTS ========
+	The results are the same as the ones that the 4-agent gave, but the next case is more interesting:
+
+	Input: i want to go home
+	======== RESULTS ========
+	Next word must be a:
+	ADV : 0.071724137931
+	NOUN : 0.0593103448276
+	ADP : 0.245517241379
+	PRT : 0.0386206896552
+	DET : 0.0206896551724
+	. : 0.0289655172414
+	PRON : 0.102068965517
+	VERB : 0.110344827586
+	X : 0.00551724137931
+	NUM : 0.00689655172414
+	CONJ : 0.04
+	ADJ : 0.270344827586
+	======== PREDICTIONS ========
+	** C - Grade **
+	- is : 0.0275862068966
+	- ! : 0.0148275862069
+	** E - Grade **
+	- is : 0.25
+	- tomorrow : 0.25
+	======== MY THOUGHTS ========
+	As the agent is only considering the last 3 words (to go home), the predictions don't make sense for the full sentence (including the "i want" part)
+
+
+/* The following test cases were giving accurate results in the first version of the predictor*/
+*********************************
+********** TEST CASE 2 **********
+*********************************
+
+	Input: if you want
+	======== RESULTS ========
+	Next word must be a:
+	ADV : 0.0760600874691
+	NOUN : 0.105533371363
+	ADP : 0.0625594219433
+	PRT : 0.0861380490588
+	DET : 0.17474805096
+	. : 0.0365088419852
+	PRON : 0.129872599353
+	VERB : 0.209355390759
+	X : 0.00342270393611
+	NUM : 0.020916524054
+	CONJ : 0.00570450656018
+	ADJ : 0.0891804525575
+	======== PREDICTIONS ========
+	** C - Grade **
+	- to : 0.0273849288915
+	- more : 0.0273211791072
+	** E - Grade **
+	- to : 0.317919075145
+	- more : 0.306358381503
+	======== MY THOUGHTS ========
+	"more" was the prediction for the previous agent and it was accurate, but now "to" has shown up and it is also a good prediction (depending on what you want to say), so I kept going with these options
+
+		Input: if you want more
+		======== RESULTS ========
+		Next word must be a:
+		ADV : 0.0611004478567
+		NOUN : 0.56269993602
+		ADP : 0.122840690979
+		PRT : 0.0361484325016
+		DET : 0.0319897632758
+		. : 0.0169545745361
+		PRON : 0.0534229046705
+		VERB : 0.0451055662188
+		NUM : 0.00607805502239
+		CONJ : 0.0278310940499
+		ADJ : 0.0358285348688
+		======== PREDICTIONS ========
+		** C - Grade **
+		- detail : 0.56269993602
+		** E - Grade **
+		- detail : 1.0
+		======== MY THOUGHTS ========
+		Now the predictions are the same as in the previous version of the agent and the final sentence is the same: "if you want more detail please... visit"
+
+		Input: if you want to
+		======== RESULTS ========
+		Next word must be a:
+		ADV : 0.102789453573
+		NOUN : 0.0596102407337
+		ADP : 0.0447076805502
+		PRT : 0.012227741689
+		DET : 0.0802445548338
+		. : 0.0152846771112
+		PRON : 0.0492930836836
+		VERB : 0.596484524264
+		X : 0.00038211692778
+		NUM : 0.0019105846389
+		CONJ : 0.0095529231945
+		ADJ : 0.0275124188002
+		======== PREDICTIONS ========
+		** C - Grade **
+		- be : 0.127404461493
+		- do : 0.0173733356582
+		** E - Grade **
+		- be : 0.21359223301
+		- watch : 0.174757281553
+		======== MY THOUGHTS ========
+		This is quite cool because all of the predictions make sense and both agents agree that "be" is the best option, so I kept going with this one
+
+			Input: if you want to be
+			======== RESULTS ========
+			Next word must be a:
+			ADV : 0.0573670444638
+			NOUN : 0.269049694856
+			ADP : 0.146120313862
+			PRT : 0.0474280732345
+			DET : 0.130078465562
+			. : 0.0329555361813
+			PRON : 0.133042720139
+			VERB : 0.0528334786399
+			X : 0.000348735832607
+			NUM : 0.00889276373147
+			CONJ : 0.0188317349608
+			ADJ : 0.103051438535
+			======== PREDICTIONS ========
+			** C - Grade **
+			- happy : 0.0388987510635
+			- the : 0.0219409459985
+			** E - Grade **
+			- completely : 0.307228915663
+			- the : 0.168674698795
+			======== MY THOUGHTS ========
+			Again, all of the predictions make sense, so following with these ones:
+
+				Input: if you want to be happy
+				======== RESULTS ========
+				Next word must be a:
+				ADV : 0.06202143951
+				NOUN : 0.538284839204
+				ADP : 0.121745788668
+				PRON : 0.0260336906585
+				DET : 0.0183767228178
+				. : 0.042113323124
+				PRT : 0.052067381317
+				VERB : 0.0275650842266
+				X : 0.00382848392037
+				NUM : 0.00459418070444
+				CONJ : 0.0444104134763
+				ADJ : 0.0589586523737
+				======== PREDICTIONS ========
+				** C - Grade **
+				- practice : 0.100479836651
+				- � : 0.0179428279735
+				** E - Grade **
+				- practice : 0.186666666667
+				- but : 0.0666666666667
+				======== MY THOUGHTS ========
+				Both agents agree that "practice" is the best option and although "but" appears in the E - Grade, I feel it kinda unlikely, so I skipped it for the next tests. 
+
+				Input: if you want to be happy practice
+				======== RESULTS ========
+				Next word must be a:
+				ADV : 0.0558928571429
+				NOUN : 0.257678571429
+				ADP : 0.1825
+				PRT : 0.0589285714286
+				DET : 0.04375
+				. : 0.0883928571429
+				PRON : 0.107857142857
+				VERB : 0.127142857143
+				X : 0.000357142857143
+				NUM : 0.0121428571429
+				CONJ : 0.0416071428571
+				ADJ : 0.02375
+				======== PREDICTIONS ========
+				** C - Grade **
+				- compassion : 0.257678571429
+				** E - Grade **
+				- compassion : 1.0
+				======== MY THOUGHTS ========
+				This is I think one of the most interesting results as this phrase seems to be something a human can say and feel
+
+			Input: if you want to watch
+			======== RESULTS ========
+			Next word must be a:
+			ADV : 0.0573670444638
+			NOUN : 0.269049694856
+			ADP : 0.146120313862
+			PRT : 0.0474280732345
+			DET : 0.130078465562
+			. : 0.0329555361813
+			PRON : 0.133042720139
+			VERB : 0.0528334786399
+			X : 0.000348735832607
+			NUM : 0.00889276373147
+			CONJ : 0.0188317349608
+			ADJ : 0.103051438535
+			======== PREDICTIONS ========
+			** C - Grade **
+			- a : 0.0750452685937
+			- something : 0.0413922607471
+			** E - Grade **
+			- a : 0.576923076923
+			- something : 0.153846153846
+			======== MY THOUGHTS ========
+			Both agents completely agree and both predictions make sense
+
+			I kept going with the "a" option and the results were getting weird:
+			if you want to watch a racist psychopath
+			if you want to watch a movie i'm happy
+
+			I kept going with the "something" option and the results were:
+			if you want to watch something much better than clegg
+
+*********************************
+********** TEST CASE 3 **********
+*********************************
+	Input: how are you
+	======== RESULTS ========
+	Next word must be a:
+	ADV : 0.153758865248
+	NOUN : 0.197163120567
+	NUM : 0.00482269503546
+	ADP : 0.0964539007092
+	PRON : 0.0320567375887
+	DET : 0.0272340425532
+	. : 0.04
+	PRT : 0.0570212765957
+	VERB : 0.325106382979
+	X : 0.00595744680851
+	CONJ : 0.0207092198582
+	ADJ : 0.0397163120567
+	======== PREDICTIONS ========
+	** C - Grade **
+	- ? : 0.0171428571429
+	- today : 0.0140830800405
+	** E - Grade **
+	- ? : 0.428571428571
+	- today : 0.0714285714286
+	======== MY THOUGHTS ========
+	These are the same results we had on the previous version and they make sense
+
+*********************************
+********** TEST CASE 4 **********
+*********************************
+
+	Input: you need to
+	======== RESULTS ========
+	Next word must be a:
+	ADV : 0.102789453573
+	NOUN : 0.0596102407337
+	ADP : 0.0447076805502
+	PRT : 0.012227741689
+	DET : 0.0802445548338
+	. : 0.0152846771112
+	PRON : 0.0492930836836
+	VERB : 0.596484524264
+	X : 0.00038211692778
+	NUM : 0.0019105846389
+	CONJ : 0.0095529231945
+	ADJ : 0.0275124188002
+	======== PREDICTIONS ========
+	** C - Grade **
+	- do : 0.0627878446594
+	- take : 0.0313939223297
+	** E - Grade **
+	- know : 0.210526315789
+	- do : 0.105263157895
+	======== MY THOUGHTS ========
+	As we already knew, the E agent thinks that "know" is a good option, but it's second option is the best option of the C agent and it also makes sense and it may be a good option depending on what you want to say. An interesting thing is that all of the options are VERBs as the C agent thinks
+
+		Input: you need to know about
+		======== RESULTS ========
+		Next word must be a:
+		ADV : 0.0259799453054
+		NOUN : 0.339562443026
+		ADP : 0.0401093892434
+		PRT : 0.0132178669098
+		DET : 0.193710118505
+		. : 0.00592525068368
+		PRON : 0.191886964448
+		NUM : 0.0515041020966
+		CONJ : 0.0154968094804
+		ADJ : 0.0793072014585
+		VERB : 0.0432999088423
+		======== PREDICTIONS ========
+		** C - Grade **
+		- me : 0.0383773928897
+		- people : 0.0339562443026
+		** E - Grade **
+		- david : 0.2
+		- me : 0.2
+		======== MY THOUGHTS ========
+		This case is similar to the last one, but I felt like the sentence is losing sense, but anyway I continued:
+
+		Input: you need to know about me
+		======== RESULTS ========
+		Next word must be a:
+		ADV : 0.066424322538
+		NOUN : 0.315267680106
+		NUM : 0.00132187706543
+		ADP : 0.0941837409121
+		PRT : 0.0115664243225
+		DET : 0.0145406477198
+		. : 0.0578321216127
+		PRON : 0.0244547257105
+		VERB : 0.302709847984
+		X : 0.00165234633179
+		CONJ : 0.0515532055519
+		ADJ : 0.0584930601454
+		======== PREDICTIONS ========
+		** C - Grade **
+		- changing : 0.151354923992
+		- they : 0.0122273628553
+		** E - Grade **
+		- they : 0.5
+		======== MY THOUGHTS ========
+		Yep, now they've lost sense hahaha
+
+*********************************
+********** TEST CASE 5 **********
+*********************************
+
+	Input: there is no
+	======== RESULTS ========
+	Next word must be a:
+	ADV : 0.046357615894
+	NOUN : 0.640176600442
+	ADP : 0.00662251655629
+	DET : 0.0110375275938
+	PRON : 0.00883002207506
+	VERB : 0.0198675496689
+	NUM : 0.00220750551876
+	ADJ : 0.264900662252
+	======== PREDICTIONS ========
+	** C - Grade **
+	- money : 0.194836356656
+	- bluff : 0.0556675304732
+	** E - Grade **
+	- money : 0.304347826087
+	- possible : 0.173913043478
+	======== MY THOUGHTS ========
+	"money" is a reasonable option, but "bluff" seems weird. Anyway, I kept going with both of them:
+
+		Input: there is no bluff
+		======== RESULTS ========
+		Next word must be a:
+		ADV : 0.046257953742
+		NOUN : 0.269871730128
+		ADP : 0.288051711948
+		PRT : 0.0712049287951
+		DET : 0.025350974649
+		. : 0.0726189273811
+		PRON : 0.049388950611
+		VERB : 0.110594889405
+		X : 0.000908999091001
+		NUM : 0.004140995859
+		CONJ : 0.045247954752
+		ADJ : 0.016361983638
+		======== PREDICTIONS ========
+		** C - Grade **
+		- to : 0.0712049287951
+		** E - Grade **
+		- to : 1.0
+		======== MY THOUGHTS ========
+		OK, now it's getting weird... I kept going and the final result doesn't make sense at all: "there is no bluff to be called only..."
+
+		Input: there is no money
+		======== RESULTS ========
+		Next word must be a:
+		ADV : 0.046257953742
+		NOUN : 0.269871730128
+		ADP : 0.288051711948
+		PRT : 0.0712049287951
+		DET : 0.025350974649
+		. : 0.0726189273811
+		PRON : 0.049388950611
+		VERB : 0.110594889405
+		X : 0.000908999091001
+		NUM : 0.004140995859
+		CONJ : 0.045247954752
+		ADJ : 0.016361983638
+		======== PREDICTIONS ========
+		** C - Grade **
+		- left : 0.102695254448
+		- note : 0.00789963495751
+		** E - Grade **
+		- left : 0.928571428571
+		- note : 0.0714285714286
+		======== MY THOUGHTS ========
+		Now this actually makes sense

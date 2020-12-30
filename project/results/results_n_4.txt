@@ -1,0 +1,292 @@
+INTERESTING TEST CASES FOR N=4
+Tags can be found at http://universaldependencies.github.io/docs/u/pos/
+
+*********************************
+********** TEST CASE 1 **********
+*********************************
+
+Input: i want to go
+======== RESULTS ========
+Next word must be a:
+ADV : 0.0838283828383
+NOUN : 0.158415841584
+ADP : 0.163696369637
+PRT : 0.0587458745875
+DET : 0.147194719472
+. : 0.03300330033
+PRON : 0.171617161716
+VERB : 0.046204620462
+NUM : 0.00726072607261
+CONJ : 0.0382838283828
+ADJ : 0.0917491749175
+======== PREDICTIONS ========
+** C - Grade **
+- home : 0.033946251768
+- back : 0.0179632248939
+** E - Grade **
+- to : 0.285714285714
+- back : 0.214285714286
+======== MY THOUGHTS ========
+All of the predictions of both agents make sense (it's worth to mention that they both agree that "back" is the best second option), so I continued with these possible sentence for the next test cases:
+
+********** C ANALYSIS **********
+	Input: i want to go home
+	======== RESULTS ========
+	Next word must be a:
+	ADV : 0.0474576271186
+	NOUN : 0.0915254237288
+	NUM : 0.00338983050847
+	ADP : 0.0915254237288
+	PRT : 0.0576271186441
+	DET : 0.0338983050847
+	. : 0.0305084745763
+	PRON : 0.11186440678
+	VERB : 0.115254237288
+	X : 0.00677966101695
+	CONJ : 0.0135593220339
+	ADJ : 0.396610169492
+	======== PREDICTIONS ========
+	** C - Grade **
+	- but : 0.0135593220339
+	** E - Grade **
+	- but : 1.0
+	======== MY THOUGHTS ========
+	Now both agents agree as there is only one possible option, so if I keep going with this sentence the final result is: "i want to go home but i can't". Then, the next prediction can't be made:
+
+	Input: i want to go home but i can't
+	======== RESULTS ========
+	Next word must be a:
+	ADV : 0.0909090909091
+	VERB : 0.787878787879
+	ADJ : 0.0909090909091
+	. : 0.030303030303
+	======== PREDICTIONS ========
+	Couldn't make a prediction
+	======== MY THOUGHTS ========
+	But it's interesting to mention that it's true that the next word should be a VERB. i.e. "but i can't FIND my keys"
+
+********** E ANALYSIS **********
+	Input: i want to go to
+	======== RESULTS ========
+	Next word must be a:
+	ADV : 0.0606060606061
+	NOUN : 0.140151515152
+	ADP : 0.125
+	PRT : 0.0340909090909
+	DET : 0.128787878788
+	. : 0.00757575757576
+	PRON : 0.0719696969697
+	VERB : 0.344696969697
+	NUM : 0.00378787878788
+	CONJ : 0.0340909090909
+	ADJ : 0.0492424242424
+	======== PREDICTIONS ========
+	** C - Grade **
+	- a : 0.032196969697
+	- school : 0.0175189393939
+	** E - Grade **
+	- a : 0.25
+	- the : 0.125
+	======== MY THOUGHTS ========
+	Following the E prediction of the next case both agents gave almost the same prediction, though the probabilities of the next word's type are kinda weird because after "i want to go to" I feel more probable to put a NOUN or a DETERMINER than a VERB (which was the most probable type).
+
+	Input: i want to go to a
+	======== RESULTS ========
+	Next word must be a:
+	ADJ : 0.0550458715596
+	NOUN : 0.935779816514
+	PRON : 0.00917431192661
+	======== PREDICTIONS ========
+	** C - Grade **
+	- school : 0.311926605505
+	- cot : 0.311926605505
+	** E - Grade **
+	- school : 0.333333333333
+	- cot : 0.333333333333
+	======== MY THOUGHTS ========
+	Now both agents agree in all the predictions and the sentence makes sense: "i want to go to a school"
+
+*********************************
+********** TEST CASE 2 **********
+*********************************
+Input: do you know how
+======== RESULTS ========
+Next word must be a:
+ADV : 0.144876325088
+NOUN : 0.047703180212
+ADP : 0.0671378091873
+PRT : 0.0194346289753
+DET : 0.0106007067138
+. : 0.0459363957597
+PRON : 0.0424028268551
+VERB : 0.441696113074
+X : 0.0017667844523
+CONJ : 0.017667844523
+ADJ : 0.160777385159
+======== PREDICTIONS ========
+** C - Grade **
+- happy : 0.0411982010922
+- many : 0.0146161259235
+** E - Grade **
+- happy : 0.863636363636
+- many : 0.0909090909091
+======== MY THOUGHTS ========
+I think that putting a VERB after this sentence is kinda weird, but the predictions seem accurate depending on what you want to say.
+
+********** C ANALYSIS **********
+	Input: do you know how many
+	======== RESULTS ========
+	Next word must be a:
+	ADV : 0.0567612687813
+	NOUN : 0.317195325543
+	ADP : 0.193656093489
+	PRON : 0.0801335559265
+	DET : 0.0217028380634
+	. : 0.0267111853088
+	PRT : 0.106844741235
+	VERB : 0.0651085141903
+	NUM : 0.0016694490818
+	CONJ : 0.093489148581
+	ADJ : 0.0367278797997
+	======== PREDICTIONS ========
+	** C - Grade **
+	- orange : 0.158597662771
+	- people : 0.158597662771
+	** E - Grade **
+	- people : 0.5
+	- orange : 0.5
+	======== MY THOUGHTS ========
+	Both agents agree and "people" seems like a good prediction, but "orange" is weird
+
+	Input: do you know how many people
+	======== RESULTS ========
+	Next word must be a:
+	ADV : 0.0470139771283
+	NOUN : 0.266836086404
+	NUM : 0.00254129606099
+	ADP : 0.165184243964
+	PRT : 0.0165184243964
+	DET : 0.0470139771283
+	. : 0.118170266836
+	PRON : 0.0787801778907
+	VERB : 0.171537484117
+	X : 0.010165184244
+	CONJ : 0.0279542566709
+	ADJ : 0.0482846251588
+	======== PREDICTIONS ========
+	** C - Grade **
+	- come : 0.133418043202
+	- ignored : 0.0857687420584
+	** E - Grade **
+	- ignored : 0.5
+	- come : 0.5
+	======== MY THOUGHTS ========
+	Both agents agree (again) and I think "come" and "ignored" are good options depending on what you want to say. I kept going with these cases until the sentences started losing sense and the final results are:
+	- do you know how many people ignored your posts and moved on
+	- do you know how many people come in here for pens and leave
+	A problem is that as the agent is just considering the 4 last words, it doesn't know that this is a question and it may go infinitely before showing a "?"
+
+********** E ANALYSIS **********
+	Input: do you know how happy
+	======== RESULTS ========
+	Next word must be a:
+	ADV : 0.0567612687813
+	NOUN : 0.317195325543
+	ADP : 0.193656093489
+	PRON : 0.0801335559265
+	DET : 0.0217028380634
+	. : 0.0267111853088
+	PRT : 0.106844741235
+	VERB : 0.0651085141903
+	NUM : 0.0016694490818
+	CONJ : 0.093489148581
+	ADJ : 0.0367278797997
+	======== PREDICTIONS ========
+	** C - Grade **
+	- would : 0.0651085141903
+	** E - Grade **
+	- would : 1.0
+	======== MY THOUGHTS ========
+	Both agents agree but I think this prediction is inconclusive, so I just kept going:
+
+	Input: do you know how happy would
+	======== RESULTS ========
+	Next word must be a:
+	ADV : 0.0645161290323
+	NOUN : 0.118279569892
+	ADP : 0.0860215053763
+	PRT : 0.10752688172
+	DET : 0.0860215053763
+	. : 0.0215053763441
+	PRON : 0.118279569892
+	VERB : 0.290322580645
+	X : 0.010752688172
+	CONJ : 0.010752688172
+	ADJ : 0.0860215053763
+	======== PREDICTIONS ========
+	** C - Grade **
+	- make : 0.290322580645
+	** E - Grade **
+	- make : 1.0
+	======== MY THOUGHTS ========
+	The same as before. As the agent (apparently) only saw this combination of words once, it just keeps showing one possible option, so I kept going and the final sentence was:
+
+	Input: do you know how happy would make me your
+	======== RESULTS ========
+	Next word must be a:
+	ADV : 0.0686274509804
+	NOUN : 0.294117647059
+	PRON : 0.0490196078431
+	VERB : 0.441176470588
+	X : 0.00980392156863
+	ADJ : 0.137254901961
+	======== PREDICTIONS ========
+	** C - Grade **
+	- follow : 0.294117647059
+	** E - Grade **
+	- follow : 1.0
+	======== MY THOUGHTS ========
+	The same as before, but it is interesting that the Twitter context has shown up as when someone "follows" you, you are gaining popularity and you are supposed to be happier
+
+	Input: do you know how happy would make me your follow
+	======== RESULTS ========
+	Next word must be a:
+	ADV : 0.0853658536585
+	NOUN : 0.182926829268
+	ADP : 0.317073170732
+	PRON : 0.0243902439024
+	. : 0.170731707317
+	PRT : 0.0365853658537
+	VERB : 0.146341463415
+	X : 0.0121951219512
+	CONJ : 0.0121951219512
+	ADJ : 0.0121951219512
+	======== PREDICTIONS ========
+	** C - Grade **
+	- for : 0.317073170732
+	** E - Grade **
+	- for : 1.0
+	======== MY THOUGHTS ========
+	After this, the sentence started losing sense, but it is interesting that in this case, the C agent had no improvement over the E agent as both of them came up with the exact same predictions. I think this may be related to the corpus size.
+
+*********************************
+********** TEST CASE 3 **********
+*********************************
+Input: whenever i want to
+======== RESULTS ========
+Next word must be a:
+ADV : 0.0512820512821
+NOUN : 0.0918803418803
+ADP : 0.0747863247863
+PRT : 0.017094017094
+DET : 0.0833333333333
+. : 0.00854700854701
+PRON : 0.0277777777778
+VERB : 0.623931623932
+NUM : 0.00213675213675
+CONJ : 0.00854700854701
+ADJ : 0.0106837606838
+======== PREDICTIONS ========
+Couldn't make a prediction
+======== MY THOUGHTS ========
+It makes sense that the next word is a VERB, but the corpus size is too small and the "whenever i want to" never appeared, so the agents don't know what can be next
